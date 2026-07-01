@@ -1,5 +1,4 @@
 const fs = require('fs/promises');
-require('dotenv').config();
 
 // ========== 任務一：讀取會員清單 ==========
 /**
