@@ -31,12 +31,12 @@ async function readMembers(filePath) {
  *
  * @example
  *   filterVIP([
- *     { name: '小華', level: 'VIP' },
+ *     { name: '小華', level: 'c' },
  *     { name: '小美', level: 'normal' }
  *   ]); // [{ name: '小華', level: 'VIP' }]
  */
 function filterVIP(members) {
-  // TODO: 實作此函式
+  return members.filter(item=>item.level==='VIP');
   // 提示：用 Array.prototype.filter，不要修改原陣列
 }
 
