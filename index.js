@@ -36,7 +36,7 @@ async function readMembers(filePath) {
  *   ]); // [{ name: '小華', level: 'VIP' }]
  */
 function filterVIP(members) {
-  return members.filter(item=>item.level==='VIP');
+  return members.filter((item) => item.level === "VIP");
   // 提示：用 Array.prototype.filter，不要修改原陣列
 }
 
@@ -52,7 +52,7 @@ function filterVIP(members) {
  *   sumCredits([]);                                  // 0
  */
 function sumCredits(members) {
-  // TODO: 實作此函式
+  return members.reduce((sum, item) => sum + item.credits, 0);
   // 提示：用 reduce，初始值給 0
 }
 
