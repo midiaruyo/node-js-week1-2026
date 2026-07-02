@@ -13,13 +13,9 @@ const fs = require('fs/promises');
  */
 async function readMembers(filePath) {
   // 提示：用 fs/promises 的 readFile，記得加 'utf-8'，再用 JSON.parse 轉成物件
-  try {
     const fileContent = await fs.readFile(filePath, { encoding: 'utf8' });
     const members = JSON.parse(fileContent);
     return members;
-  } catch (error) {
-    console.log(error)
-  }
 }
 
 // ========== 任務二：篩選 VIP 會員 ==========
@@ -100,12 +96,15 @@ function getGymConfig() {
  *   // { count: 2, totalCredits: 320, names: ['小華', '阿強'] }
  */
 async function getVIPSummary(filePath) {
-  // TODO: 實作此函式
-  // 步驟：
-  //   1. 讀會員資料
-  //   2. 篩出 VIP
-  //   3. 算總點數、收集姓名
-  //   4. 回傳 { count, totalCredits, names }
+    //   1. 讀會員資料
+    const members = await readMembers(filePath);
+    //   2. 篩出 VIP
+    const vipMembers = filterVIP(members);
+    //   3. 算總點數、收集姓名
+    const count = vipMembers.length;
+    const totalCredits = sumCredits(vipMembers);
+    const names = vipMembers.map((item) => item.name);
+    return { count, totalCredits, names };
 }
 
 module.exports = {
